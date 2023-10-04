@@ -18,22 +18,22 @@ class HomeScreen extends StatelessWidget {
                 const SizedBox(width: 28),
                 Column(
                   children: [
-                    Text(
+                    const Text(
                       'Sunday',
                       style: TextStyle(
                         color: Colors.black,
-                        fontSize: 22,
-                        fontWeight: FontWeight.w700,
+                        fontSize: 20,
+                        fontWeight: FontWeight.w600,
                       ),
                     ),
                     const SizedBox(height: 7),
                     Row(
                       children: [
-                        Text(
+                        const Text(
                           '28 September 2023',
                           style: TextStyle(
                             color: Colors.black,
-                            fontSize: 16,
+                            fontSize: 14,
                           ),
                         ),
                         const SizedBox(width: 10),
@@ -49,38 +49,40 @@ class HomeScreen extends StatelessWidget {
                 ),
                 Stack(
                   children: [
-                    Container(
-                      child: Image.asset(
-                        'assets/icons/notification.png',
-                        height: 28,
-                        width: 28,
-                      ),
+                    Image.asset(
+                      'assets/icons/notification.png',
+                      height: 28,
+                      width: 28,
                     ),
                     Container(
-                        height: 10,
-                        width: 10,
-                        margin: const EdgeInsets.only(
-                          left: 17,
-                          right: 1,
-                          top: 1,
-                        ),
-                        padding: const EdgeInsets.all(1),
-                        decoration: BoxDecoration(
-                          color: Colors.white,
-                          borderRadius: BorderRadius.circular(50),
-                        ),
-                        child: CircleAvatar(
-                          backgroundColor: Colors.blue,
-                        )),
+                      height: 10,
+                      width: 10,
+                      margin: const EdgeInsets.only(
+                        left: 17,
+                        right: 1,
+                        top: 1,
+                      ),
+                      padding: const EdgeInsets.all(1),
+                      decoration: BoxDecoration(
+                        color: Colors.white,
+                        borderRadius: BorderRadius.circular(50),
+                      ),
+                      child: const CircleAvatar(
+                        backgroundColor: Colors.blue,
+                      ),
+                    ),
                   ],
                 )
               ],
             ),
             const SizedBox(height: 20),
             Container(
-              height: 270,
+              height: 260,
               width: double.infinity,
-              color: Colors.lightBlueAccent,
+              decoration: BoxDecoration(
+                color: Colors.lightBlueAccent,
+                borderRadius: BorderRadius.circular(20),
+              ),
             ),
             const SizedBox(height: 20),
             Column(
@@ -91,8 +93,8 @@ class HomeScreen extends StatelessWidget {
                     const Text(
                       'Schedule',
                       style: TextStyle(
-                        fontSize: 24,
-                        fontWeight: FontWeight.w800,
+                        fontSize: 20,
+                        fontWeight: FontWeight.w600,
                         color: Colors.black,
                       ),
                     ),
@@ -108,7 +110,7 @@ class HomeScreen extends StatelessWidget {
                       child: const Text(
                         '+ Add Event',
                         style: TextStyle(
-                          fontSize: 16,
+                          fontSize: 14,
                           fontWeight: FontWeight.w600,
                           color: Colors.white,
                         ),
@@ -121,8 +123,7 @@ class HomeScreen extends StatelessWidget {
                   color1: Colors.blue,
                   color2: const Color(0xFFC6E6F6),
                   title: 'Watching Football',
-                  subTitle:
-                      "Lorem Ipsum is simply dummy text",
+                  subTitle: "Lorem Ipsum is simply dummy text",
                   time: '17:00 - 18:30',
                   location: 'Stamford Bridge',
                 ),
@@ -131,8 +132,7 @@ class HomeScreen extends StatelessWidget {
                   color1: Colors.red,
                   color2: const Color(0xFFF6CFC6),
                   title: 'Watching Football',
-                  subTitle:
-                      "Lorem Ipsum is simply dummy text",
+                  subTitle: "Lorem Ipsum is simply dummy text",
                   time: '17:00 - 18:30',
                 ),
                 const SizedBox(height: 20),
@@ -140,8 +140,7 @@ class HomeScreen extends StatelessWidget {
                   color1: Colors.orange,
                   color2: const Color(0xFFF6E3C6),
                   title: 'Watching Football',
-                  subTitle:
-                      "Lorem Ipsum is simply dummy text",
+                  subTitle: "Lorem Ipsum is simply dummy text",
                   time: '17:00 - 18:30',
                 ),
               ],

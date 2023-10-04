@@ -10,11 +10,11 @@ class AddEventScreen extends StatelessWidget {
         child: Column(
           crossAxisAlignment: CrossAxisAlignment.start,
           children: [
-            const SizedBox(height: 10),
+            const SizedBox(height: 20),
             Image.asset(
               'assets/icons/back.png',
-              height: 80,
-              width: 80,
+              height: 60,
+              width: 60,
             ),
             Padding(
               padding: const EdgeInsets.all(15),
@@ -108,8 +108,7 @@ class AddEventScreen extends StatelessWidget {
                               borderRadius: BorderRadius.circular(10),
                             ),
                             child: const Row(
-                              mainAxisAlignment:
-                                  MainAxisAlignment.spaceBetween,
+                              mainAxisAlignment: MainAxisAlignment.spaceBetween,
                               children: [
                                 Text(''),
                                 Icon(
@@ -154,26 +153,28 @@ class AddEventScreen extends StatelessWidget {
                       ),
                     ],
                   ),
-                  const SizedBox(height: 50),
-                  Container(
-                    padding: const EdgeInsets.all(15),
-                    width: double.infinity,
-                    decoration: BoxDecoration(
-                      borderRadius: BorderRadius.circular(10),
-                      color: Colors.blue,
-                    ),
-                    child: const Text(
-                      'Add',
-                      style: TextStyle(
-                        fontSize: 16,
-                        color: Colors.white,
-                      ),
-                    ),
-                  ),
                 ],
               ),
             ),
           ],
+        ),
+      ),
+      bottomSheet: Container(
+        height: 50,
+        alignment: Alignment.center,
+        padding: const EdgeInsets.all(15),
+        margin: const EdgeInsets.all(15),
+        width: double.infinity,
+        decoration: BoxDecoration(
+          borderRadius: BorderRadius.circular(10),
+          color: Colors.blue,
+        ),
+        child: const Text(
+          'Add',
+          style: TextStyle(
+            fontSize: 16,
+            color: Colors.white,
+          ),
         ),
       ),
     );

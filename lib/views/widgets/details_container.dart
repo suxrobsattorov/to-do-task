@@ -17,7 +17,7 @@ class DetailsContainer extends StatelessWidget {
   Widget build(BuildContext context) {
     return Container(
       padding: const EdgeInsets.all(22),
-      height: 260,
+      height: 268,
       width: double.infinity,
       decoration: const BoxDecoration(
         color: Colors.blue,
@@ -73,9 +73,9 @@ class DetailsContainer extends StatelessWidget {
           Text(
             title,
             style: const TextStyle(
-              fontSize: 32,
+              fontSize: 26,
               color: Colors.white,
-              fontWeight: FontWeight.bold,
+              fontWeight: FontWeight.w600,
             ),
           ),
           const SizedBox(height: 10),
@@ -84,6 +84,7 @@ class DetailsContainer extends StatelessWidget {
             style: const TextStyle(
               fontSize: 12,
               color: Colors.white,
+              fontWeight: FontWeight.w400,
             ),
           ),
           const SizedBox(height: 10),
@@ -98,8 +99,9 @@ class DetailsContainer extends StatelessWidget {
               Text(
                 time,
                 style: const TextStyle(
-                  fontSize: 16,
+                  fontSize: 12,
                   color: Colors.white,
+                  fontWeight: FontWeight.w500,
                 ),
               ),
             ],
@@ -117,8 +119,9 @@ class DetailsContainer extends StatelessWidget {
               Text(
                 location!,
                 style: const TextStyle(
-                  fontSize: 16,
+                  fontSize: 12,
                   color: Colors.white,
+                  fontWeight: FontWeight.w500,
                 ),
               ),
             ],

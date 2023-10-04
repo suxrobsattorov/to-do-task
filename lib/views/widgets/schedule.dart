@@ -50,15 +50,15 @@ class Schedule extends StatelessWidget {
               Text(
                 title,
                 style: TextStyle(
-                  fontSize: 20,
-                  fontWeight: FontWeight.w700,
+                  fontSize: 16,
+                  fontWeight: FontWeight.w600,
                   color: color1,
                 ),
               ),
               Text(
                 subTitle,
                 style: TextStyle(
-                  fontSize: 14,
+                  fontSize: 12,
                   color: color1,
                 ),
               ),
@@ -72,7 +72,7 @@ class Schedule extends StatelessWidget {
                   Text(
                     time,
                     style: TextStyle(
-                      fontSize: 16,
+                      fontSize: 14,
                       color: color1,
                     ),
                   ),
@@ -88,7 +88,7 @@ class Schedule extends StatelessWidget {
                             Text(
                               location!,
                               style: TextStyle(
-                                fontSize: 16,
+                                fontSize: 14,
                                 color: color1,
                               ),
                             ),
