@@ -146,7 +146,7 @@ class AddEventScreen extends StatelessWidget {
                               decoration: const InputDecoration(
                                 border: InputBorder.none,
                               ),
-                              textInputAction: TextInputAction.next,
+                              textInputAction: TextInputAction.done,
                             ),
                           ),
                         ],
@@ -156,6 +156,7 @@ class AddEventScreen extends StatelessWidget {
                 ],
               ),
             ),
+            const SizedBox(height: 70),
           ],
         ),
       ),
