@@ -100,6 +100,7 @@ class Schedule extends StatelessWidget {
             ],
           ),
         ),
+        const SizedBox(height: 15),
       ],
     );
   }

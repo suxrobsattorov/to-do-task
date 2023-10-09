@@ -1,31 +1,38 @@
 import 'package:flutter/material.dart';
+import 'package:provider/provider.dart';
+import 'package:to_do_task/models/event.dart';
+import 'package:to_do_task/views/screens/home.dart';
 import 'package:to_do_task/views/widgets/details_container.dart';
+
+import '../../controllers/providers/event_provider.dart';
 
 class DetailsEventScreen extends StatelessWidget {
   const DetailsEventScreen({Key? key}) : super(key: key);
 
+  static const routeName = '/details';
+
   @override
   Widget build(BuildContext context) {
+    final event = ModalRoute.of(context)?.settings.arguments as Event;
     return Scaffold(
       body: Column(
         crossAxisAlignment: CrossAxisAlignment.start,
         children: [
           DetailsContainer(
-            title: 'Watching Football',
-            subTitle: 'Manchester United vs Arsenal',
-            time: '17:00 - 18:30',
-            location: 'Stamford Bridge',
+            event: event,
           ),
           Expanded(
             child: Padding(
               padding: const EdgeInsets.all(20),
               child: Column(
+                crossAxisAlignment: CrossAxisAlignment.start,
                 mainAxisAlignment: MainAxisAlignment.spaceBetween,
                 children: [
-                  const Column(
+                  Column(
                     crossAxisAlignment: CrossAxisAlignment.start,
                     children: [
-                      SizedBox(height: 20),
+                      const SizedBox(height: 20),
+                      // ignore: prefer_const_constructors
                       Column(
                         crossAxisAlignment: CrossAxisAlignment.start,
                         children: [
@@ -48,11 +55,11 @@ class DetailsEventScreen extends StatelessWidget {
                           ),
                         ],
                       ),
-                      SizedBox(height: 20),
+                      const SizedBox(height: 20),
                       Column(
                         crossAxisAlignment: CrossAxisAlignment.start,
                         children: [
-                          Text(
+                          const Text(
                             'Description',
                             style: TextStyle(
                               fontSize: 20,
@@ -60,10 +67,10 @@ class DetailsEventScreen extends StatelessWidget {
                               color: Colors.black,
                             ),
                           ),
-                          SizedBox(height: 10),
+                          const SizedBox(height: 10),
                           Text(
-                            'Contrary to popular belief, Lorem Ipsum is not simply random text. It has roots in a piece of classical Latin literature from 45 BC, making it over 2000 years old. Richard McClintock, a Latin professor at Hampden-Sydney College in Virginia, looked up one of the more obscure Latin words, consectetur, from a Lorem Ipsum passage, and going through the cites of the word in classical literature, discovered the undoubtable source.',
-                            style: TextStyle(
+                            event.description,
+                            style: const TextStyle(
                               fontSize: 12,
                               fontWeight: FontWeight.w400,
                               color: Colors.grey,
@@ -73,33 +80,41 @@ class DetailsEventScreen extends StatelessWidget {
                       ),
                     ],
                   ),
-                  Container(
-                    padding: const EdgeInsets.all(20),
-                    decoration: BoxDecoration(
-                      borderRadius: BorderRadius.circular(13),
-                      color: const Color(0xFFFEE8E9),
-                    ),
-                    alignment: Alignment.center,
-                    child: Row(
-                      mainAxisAlignment: MainAxisAlignment.center,
-                      children: [
-                        Image.asset(
-                          'assets/icons/delete.png',
-                          height: 20,
-                          width: 20,
-                          fit: BoxFit.cover,
-                          color: Colors.red,
-                        ),
-                        const SizedBox(width: 3),
-                        const Text(
-                          'Delete Event',
-                          style: TextStyle(
-                            fontSize: 18,
-                            fontWeight: FontWeight.w600,
-                            color: Colors.black,
+                  InkWell(
+                    onTap: () {
+                      Provider.of<EventProvider>(context, listen: false)
+                          .deleteEvent(event.id);
+                      Navigator.of(context)
+                          .pushReplacementNamed(HomeScreen.routeName);
+                    },
+                    child: Container(
+                      padding: const EdgeInsets.all(20),
+                      decoration: BoxDecoration(
+                        borderRadius: BorderRadius.circular(13),
+                        color: const Color(0xFFFEE8E9),
+                      ),
+                      alignment: Alignment.center,
+                      child: Row(
+                        mainAxisAlignment: MainAxisAlignment.center,
+                        children: [
+                          Image.asset(
+                            'assets/icons/delete.png',
+                            height: 20,
+                            width: 20,
+                            fit: BoxFit.cover,
+                            color: Colors.red,
                           ),
-                        )
-                      ],
+                          const SizedBox(width: 3),
+                          const Text(
+                            'Delete Event',
+                            style: TextStyle(
+                              fontSize: 18,
+                              fontWeight: FontWeight.w600,
+                              color: Colors.black,
+                            ),
+                          )
+                        ],
+                      ),
                     ),
                   ),
                 ],

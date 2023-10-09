@@ -1,16 +1,16 @@
 import 'package:flutter/material.dart';
+import 'package:to_do_task/views/screens/add_event.dart';
+
+import '../../models/event.dart';
+import '../screens/home.dart';
 
 // ignore: must_be_immutable
 class DetailsContainer extends StatelessWidget {
-  String title, subTitle, time;
-  String? location;
+  Event event;
 
   DetailsContainer({
     Key? key,
-    required this.title,
-    required this.subTitle,
-    required this.time,
-    this.location,
+    required this.event,
   }) : super(key: key);
 
   @override
@@ -33,16 +33,17 @@ class DetailsContainer extends StatelessWidget {
           Row(
             mainAxisAlignment: MainAxisAlignment.spaceBetween,
             children: [
-              Container(
-                height: 50,
-                width: 50,
-                decoration: BoxDecoration(
-                  borderRadius: BorderRadius.circular(50),
-                  color: Colors.white,
-                ),
-                child: IconButton(
-                  onPressed: () {},
-                  icon: const Icon(
+              InkWell(
+                onTap: () => Navigator.of(context)
+                    .pushReplacementNamed(HomeScreen.routeName),
+                child: Container(
+                  height: 50,
+                  width: 50,
+                  decoration: BoxDecoration(
+                    borderRadius: BorderRadius.circular(50),
+                    color: Colors.white,
+                  ),
+                  child: const Icon(
                     Icons.chevron_left,
                     color: Colors.black,
                     size: 35,
@@ -50,7 +51,10 @@ class DetailsContainer extends StatelessWidget {
                 ),
               ),
               TextButton(
-                onPressed: () {},
+                onPressed: () {
+                  Navigator.of(context)
+                      .pushReplacementNamed(AddEventScreen.routeName, arguments: event.id);
+                },
                 child: Row(
                   children: [
                     Image.asset(
@@ -71,7 +75,7 @@ class DetailsContainer extends StatelessWidget {
           ),
           const SizedBox(height: 19),
           Text(
-            title,
+            event.name,
             style: const TextStyle(
               fontSize: 26,
               color: Colors.white,
@@ -80,7 +84,7 @@ class DetailsContainer extends StatelessWidget {
           ),
           const SizedBox(height: 10),
           Text(
-            subTitle,
+            event.subName,
             style: const TextStyle(
               fontSize: 12,
               color: Colors.white,
@@ -97,7 +101,7 @@ class DetailsContainer extends StatelessWidget {
               ),
               const SizedBox(width: 5),
               Text(
-                time,
+                event.time,
                 style: const TextStyle(
                   fontSize: 12,
                   color: Colors.white,
@@ -107,25 +111,26 @@ class DetailsContainer extends StatelessWidget {
             ],
           ),
           const SizedBox(height: 10),
-          location != null
+          // ignore: unnecessary_null_comparison
+          event.location != null
               ? Row(
-            children: [
-              const Icon(
-                Icons.location_on,
-                size: 20,
-                color: Colors.white,
-              ),
-              const SizedBox(width: 5),
-              Text(
-                location!,
-                style: const TextStyle(
-                  fontSize: 12,
-                  color: Colors.white,
-                  fontWeight: FontWeight.w500,
-                ),
-              ),
-            ],
-          )
+                  children: [
+                    const Icon(
+                      Icons.location_on,
+                      size: 20,
+                      color: Colors.white,
+                    ),
+                    const SizedBox(width: 5),
+                    Text(
+                      event.location,
+                      style: const TextStyle(
+                        fontSize: 12,
+                        color: Colors.white,
+                        fontWeight: FontWeight.w500,
+                      ),
+                    ),
+                  ],
+                )
               : Container(),
         ],
       ),
